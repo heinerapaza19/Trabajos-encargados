@@ -3,27 +3,27 @@ package pe.edu.upeu.syscenterlife.servicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upeu.syscenterlife.modelo.CompCarrito;
-import pe.edu.upeu.syscenterlife.repositorio.CompCarritoRepository;
+import pe.edu.upeu.syscenterlife.modelo.UnidMedida;
+import pe.edu.upeu.syscenterlife.repositorio.UnidMedidaRepository;
 
 @Service
-public class CompCarritoService {
+public class UnidMedidaService {
     @Autowired
-    CompCarritoRepository repository;
+    UnidMedidaRepository repository;
     
     // Crear
-    public CompCarrito guardarEntidad(CompCarrito compCarrito){
-        return repository.save(compCarrito);
+    public UnidMedida guardarEntidad(UnidMedida unidMedida){
+        return repository.save(unidMedida);
     }
     
     // Leer todos los elementos
-    public List<CompCarrito> listarEntidad(){
+    public List<UnidMedida> listarEntidad(){
         return repository.findAll();
     }
     
     // Actualizar
-    public CompCarrito actualizarEntidad(CompCarrito compCarrito){
-        return repository.save(compCarrito);
+    public UnidMedida actualizarEntidad(UnidMedida unidMedida){
+        return repository.save(unidMedida);
     }
     
     // Eliminar
@@ -32,7 +32,7 @@ public class CompCarritoService {
     }
     
     // Buscar por ID
-    public CompCarrito buscarEntidad(Long id){
+    public UnidMedida buscarEntidad(Long id){
         return repository.findById(id).orElse(null);
     }
 }

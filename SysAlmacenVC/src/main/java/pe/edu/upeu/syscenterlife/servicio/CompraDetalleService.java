@@ -1,37 +1,38 @@
-
 package pe.edu.upeu.syscenterlife.servicio;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
-import java.util.Optional;
 import pe.edu.upeu.syscenterlife.modelo.CompraDetalle;
 import pe.edu.upeu.syscenterlife.repositorio.CompraDetalleRepository;
 
 @Service
 public class CompraDetalleService {
-
     @Autowired
-    private CompraDetalleRepository compraDetalleRepository;
-
-    public CompraDetalle guardarCompraDetalle(CompraDetalle compraDetalle) {
-        return compraDetalleRepository.save(compraDetalle);
+    CompraDetalleRepository repository;
+    
+    // Crear
+    public CompraDetalle guardarEntidad(CompraDetalle compraDetalle){
+        return repository.save(compraDetalle);
     }
-
-    public List<CompraDetalle> obtenerTodosLosCompraDetalles() {
-        return compraDetalleRepository.findAll();
+    
+    // Leer todos los elementos
+    public List<CompraDetalle> listarEntidad(){
+        return repository.findAll();
     }
-
-    public Optional<CompraDetalle> obtenerCompraDetallePorId(Integer id) {
-        return compraDetalleRepository.findById(id);
+    
+    // Actualizar
+    public CompraDetalle actualizarEntidad(CompraDetalle compraDetalle){
+        return repository.save(compraDetalle);
     }
-
-    public CompraDetalle actualizarCompraDetalle(CompraDetalle compraDetalle) {
-        return compraDetalleRepository.save(compraDetalle);
+    
+    // Eliminar
+    public void eliminarEntidad(Long id){
+        repository.deleteById(id);
     }
-
-    public void eliminarCompraDetallePorId(Integer id) {
-        compraDetalleRepository.deleteById(id);
+    
+    // Buscar por ID
+    public CompraDetalle buscarEntidad(Long id){
+        return repository.findById(id).orElse(null);
     }
 }
-
